@@ -86,9 +86,11 @@ async def play_stream(_, message: Message, lang):
     if song is None:
         k = await message.reply_text(lang["notFound"])
         return await delete_messages([message, k])
-   """ok, status = await song.parse()
+    """
+    ok, status = await song.parse()
     if not ok:
-        raise Exception(status)"""
+        raise Exception(status)
+    """
     if not group["is_playing"]:
         set_group(chat_id, is_playing=True, now_playing=song)
         await start_stream(song, lang)
